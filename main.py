@@ -27,6 +27,7 @@ class AlienInvasion:
             self.ship.update()
             self.bullets.update()
             self._update_bullets()
+            self._update_aliens()
             self._update_screen()
 
     def _create_fleet(self):
@@ -100,6 +101,10 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+
+    def _update_aliens(self):
+        """ Actualiza las posiciones de todos los aliens de la flota """
+        self.aliens.update()
 
     def _update_screen(self):
         " Actualiza las imágenes en la pantalla y cambia a la pantalla nueva. "
